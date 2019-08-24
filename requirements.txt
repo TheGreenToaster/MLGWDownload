@@ -1,2 +1,2 @@
-azure-storage-blob
-requests
+azure-storage-blob==2.1.0
+requests==2.21.0
