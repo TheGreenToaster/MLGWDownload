@@ -10,6 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
 - task: AzureFunctionApp@1
   inputs:
     azureSubscription: 'Pay-As-You-Go(acb31a52-791d-4c9a-a2df-bd977c4e4941)'
