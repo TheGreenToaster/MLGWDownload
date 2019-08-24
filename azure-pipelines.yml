@@ -10,10 +10,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: AzureFunctionApp@1
+  inputs:
+    azureSubscription: 'Pay-As-You-Go(acb31a52-791d-4c9a-a2df-bd977c4e4941)'
+    appType: 'functionAppLinux'
+    appName: 'MLGWDownload'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
